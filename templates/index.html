@@ -91,36 +91,6 @@
     </main>
 </div>
 <script>
-    document.getElementById('click-button').addEventListener('click', function (event) {
-        const circle = event.currentTarget;
-        const rect = circle.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const radius = rect.width / 2;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const distance = Math.sqrt((x - centerX) ** 2 + (y - centerY) ** 2);
-
-        if (distance <= radius) {
-            let numberElement = document.createElement('div');
-            numberElement.className = 'number';
-            numberElement.textContent = '+1';
-            circle.appendChild(numberElement);
-
-            numberElement.style.left = x + 'px';
-            numberElement.style.top = y + 'px';
-
-            setTimeout(function () {
-                numberElement.style.opacity = 0;
-                numberElement.style.transform = 'translateY(-10px)';
-            }, 100);
-
-            setTimeout(function () {
-                circle.removeChild(numberElement);
-            }, 1100);
-        }
-    });
     const clickButton = document.getElementById('click-button');
     const coinsElement = document.getElementById('coins');
     const energyElement = document.getElementById('energy');
